@@ -13,6 +13,7 @@ function cargarEventos() {
         const div = document.createElement('div');
         div.classList.add('event');
         div.innerHTML = `
+
         <img src="${e.imagen}" alt="Imagen evento" class="event__image">
         <h3 class="event__title">${e.titulo}</h3>
         <p class="event__description">${e.descripcion}</p>
@@ -35,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// Escuchar clicks en todos los botones Ver más/Ver menos
+
 // Escuchar clicks en todos los botones Ver más/Ver menos
 document.addEventListener('click', function (e) {
   if (e.target.matches('.event__toggle')) {
@@ -64,6 +65,7 @@ function crearEvento(evento) {
   `;
   contenedor.appendChild(div);
 }
+
 // Carrusel de imágenes
 const imagenes = [
   "https://template.canva.com/EAFcn2Jk5TY/2/0/1600w-waOGgi87JjY.jpg",
@@ -106,13 +108,14 @@ cambiarImagen(0);
 // Autoplay cada 5 segundos
 setInterval(mostrarSiguiente, 5000);
 
-const correoInput = document.getElementById('correo');
+// CAMBIO: usar el id nuevo para el input de suscripción
+const correoSuscripcion = document.getElementById('correo-suscripcion');
 
-correoInput.addEventListener('keypress', (e) => {
+correoSuscripcion.addEventListener('keypress', (e) => {
   if (e.key === 'Enter') {
     e.preventDefault(); // evita que se envíe un formulario si existe
 
-    const correo = correoInput.value.trim();
+    const correo = correoSuscripcion.value.trim();
 
     // Patrón básico para validar formato de correo
     const patronCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -136,7 +139,7 @@ correoInput.addEventListener('keypress', (e) => {
       .then(response => {
         if (response.ok) {
           alert('¡Gracias por suscribirte!');
-          correoInput.value = ''; // limpiar campo
+          correoSuscripcion.value = ''; // limpiar campo
         } else {
           alert('Error al guardar el correo.');
         }
@@ -147,6 +150,7 @@ correoInput.addEventListener('keypress', (e) => {
       });
   }
 });
+
 // Función para enviar formulario de contacto
 function enviarContacto() {
   const form = document.querySelector('#form-contacto');
@@ -156,7 +160,7 @@ function enviarContacto() {
     e.preventDefault();
 
     const nombre = document.querySelector('#nombre')?.value.trim();
-    const correo = document.querySelector('#correo')?.value.trim();
+    const correo = document.querySelector('#correo-contacto')?.value.trim(); // CAMBIO aquí, usar id nuevo
     const mensaje = document.querySelector('#mensaje')?.value.trim();
 
     if (!nombre || !correo || !mensaje) {
