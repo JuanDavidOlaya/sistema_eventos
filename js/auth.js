@@ -20,7 +20,7 @@ form.addEventListener("submit", (e) => {
     
     if (user) {
         sessionStorage.setItem("userActive", JSON.stringify(user));
-        location.href = "./admin/dashboard.html"
+        location.href = "/sistema_eventos/admin/dashboard.html"
          
     } else {
       alert("Credenciales incorrectas");
