@@ -127,38 +127,25 @@ correoInput.addEventListener('keypress', (e) => {
       return;
     }
 
-const correoInput = document.getElementById('correo');
-
-correoInput.addEventListener('keypress', (e) => {
-  if (e.key === 'Enter') {
-    e.preventDefault(); // Evita que se envíe un formulario si lo hay
-    const correo = correoInput.value.trim();
-
-    if (!correo) {
-      alert('Por favor ingresa un correo válido.');
-      return;
-    }
-
+    // Enviar al JSON Server
     fetch('http://localhost:3000/suscripciones', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ correo })
     })
-    .then(response => {
-      if (response.ok) {
-        alert('¡Gracias por suscribirte!');
-        correoInput.value = ''; // limpiar campo
-      } else {
-        alert('Error al guardar el correo.');
-      }
-    })
-    .catch(error => {
-      console.error('Error:', error);
-      alert('No se pudo conectar con el servidor.');
-    });
+      .then(response => {
+        if (response.ok) {
+          alert('¡Gracias por suscribirte!');
+          correoInput.value = ''; // limpiar campo
+        } else {
+          alert('Error al guardar el correo.');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('No se pudo conectar con el servidor.');
+      });
   }
-});
-
 });
 // Función para enviar formulario de contacto
 function enviarContacto() {
