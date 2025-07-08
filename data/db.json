@@ -1,0 +1,52 @@
+{
+  "eventos": [
+    {
+      "id": "1",
+      "titulo": "Expo MakeUp",
+      "descripcion": "Es el evento imprescindible para los amantes y profesionales del maquillaje. Descubre las últimas tendencias, técnicas y productos que están revolucionando el mundo del make up. Talleres en vivo, demostraciones de artistas reconocidos y stands de marcas exclusivas te esperan para inspirarte y potenciar tu creatividad",
+      "imagen": "https://images-ext-1.discordapp.net/external/VV-FoBHdG-EJfE0TGlHmcVZznnErX1vvedDMad_k8Sc/%3Fw%3D500%26auto%3Dformat%26fit%3Dcrop%26q%3D60%26ixlib%3Drb-4.1.0%26ixid%3DM3wxMjA3fDB8MHxzZWFyY2h8MTB8fG1ha2V1cCUyMGV2ZW50c3xlbnwwfHwwfHx8MA%253D%253D/https/images.unsplash.com/photo-1680696232510-173598c8cc3d?format=webp&width=1000&height=666",
+      "fecha": "2025-08-15",
+      "estado": "activo"
+    },
+    {
+      "id": "2",
+      "titulo": "Feria De Belleza",
+      "descripcion": "Reúne a las mejores marcas, expertos y tendencias del universo beauty. Un espacio integral para conocer lanzamientos de cosmética, cuidado capilar, uñas y skincare, además de participar en charlas, shows en vivo y actividades interactivas diseñadas para realzar la belleza desde todas sus formas.",
+      "imagen": "https://images-ext-1.discordapp.net/external/VV-FoBHdG-EJfE0TGlHmcVZznnErX1vvedDMad_k8Sc/%3Fw%3D500%26auto%3Dformat%26fit%3Dcrop%26q%3D60%26ixlib%3Drb-4.1.0%26ixid%3DM3wxMjA3fDB8MHxzZWFyY2h8MTB8fG1ha2V1cCUyMGV2ZW50c3xlbnwwfHwwfHx8MA%253D%253D/https/images.unsplash.com/photo-1680696232510-173598c8cc3d?format=webp&width=1000&height=666",
+      "fecha": "2025-09-01",
+      "estado": "activo"
+    },
+    {
+      "id": "3",
+      "titulo": "Conferencia De Cosmetolgia",
+      "descripcion": "Es el punto de encuentro académico y profesional para profundizar en técnicas, tratamientos y avances científicos del cuidado de la piel. Escucha a expertos nacionales e internacionales que compartirán conocimientos actualizados, casos clínicos y buenas prácticas para llevar tu carrera al siguiente nivel",
+      "imagen": "https://images-ext-1.discordapp.net/external/O85oE5jLW9UQHUpKzyU1bo-wQ8BmJpgFIjpQbCd92cQ/%3Fa%3D1%26b%3D1%26s%3D612x612%26w%3D0%26k%3D20%26c%3DvVuSlxrnKfIm0h_8E-hZgcU33-yo_V4cswYnlYvr-mQ%3D/https/media.istockphoto.com/id/1133130135/es/foto/cl%25C3%25ADnica-de-cosmetologia-peeling-%25C3%25A1cido-exfoliaci%25C3%25B3n-antioxidante-cosmet%25C3%25B3loga.webp?format=webp&width=1224&height=816",
+      "fecha": "2025-07-20",
+      "estado": "activo"
+    },
+    {
+      "id": "4",
+      "titulo": "Exposición de Estetica",
+      "descripcion": "Está dedicada a presentar innovaciones, tecnologías y productos relacionados con tratamientos faciales, corporales y spa. Vive demostraciones en directo, conoce proveedores y descubre herramientas profesionales para optimizar tu negocio en el sector de la estética.",
+      "imagen": "https://images-ext-1.discordapp.net/external/IYs0XMSwE3tcaV8_Z-CMBY-Ho7vrm6jJHy6pFVJ8-tA/%3Fa%3D1%26b%3D1%26s%3D612x612%26w%3D0%26k%3D20%26c%3DtIbUR0GH93B1pswAOu-uPfK1VzoVdjIciRJWb15ZZJw%3D/https/media.istockphoto.com/id/1476147337/es/foto/los-arquitectos-asi%25C3%25A1ticos-se-asocian-consultan-y-discuten-sobre-la-exposici%25C3%25B3n-del-trabajo-de.webp?format=webp&width=1224&height=816",
+      "fecha": "2025-10-10",
+      "estado": "inactivo"
+    },
+    {
+      "id": "5",
+      "titulo": "Festival de Aparotolgia",
+      "descripcion": "Es el evento especializado en tecnología aplicada a la belleza y el bienestar. Conoce equipos de última generación para tratamientos estéticos y médicos, participa en demostraciones técnicas y conecta con fabricantes y distribuidores que marcan la pauta en aparatología profesional.",
+      "imagen": "https://images-ext-1.discordapp.net/external/pDoZz53AQtj6M8eRA0jrAl23iu6o8G2ddwUXQ1WiN6s/%3Fs%3D612x612%26w%3D0%26k%3D20%26c%3Dl15OdMWjgCKycMMShP8UK94ELVlEGvt7GmB_esHWPYE%3D/https/media.istockphoto.com/id/814423752/photo/eye-of-model-with-colorful-art-make-up-close-up.jpg?format=webp&width=1224&height=816",
+      "fecha": "2025-10-10",
+      "estado": "inactivo"
+    },
+    {
+      "id": "1d06",
+      "titulo": "Riwi Fest",
+      "descripcion": "dsds",
+      "imagen": "https://images.unsplash.com/photo-1749740429722-fed0e4e9cf15?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "fecha": "2025-07-23",
+      "estado": "activo"
+    }
+  ]
+}
