@@ -45,7 +45,7 @@ El login debe hacerse desde esta URL (hosteada en GitHub Pages):
 Si se quiere hacer usando el live server de VIsual Studio Code, esta sera la URL: 
  ***puerto local del live server*** seguido de /index.html
 ### Ejemplo
-http://124.1.1.2:5501/index.html
+http://124.1.1.2:5501/login.html
 ### ⚠️ Importante: Si accedes al login desde local (file://), el middleware puede bloquear el acceso. Por eso, siempre usa la URL pública para iniciar sesión.
 
 ### 🖥️ Panel administrativo
