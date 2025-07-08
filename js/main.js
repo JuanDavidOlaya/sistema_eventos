@@ -13,7 +13,6 @@ function cargarEventos() {
         const div = document.createElement('div');
         div.classList.add('event');
         div.innerHTML = `
-        <h4 class="event__id">ID: ${e.id}</h4>
         <img src="${e.imagen}" alt="Imagen evento" class="event__image">
         <h3 class="event__title">${e.titulo}</h3>
         <p class="event__description">${e.descripcion}</p>
@@ -128,25 +127,38 @@ correoInput.addEventListener('keypress', (e) => {
       return;
     }
 
-    // Enviar al JSON Server
+const correoInput = document.getElementById('correo');
+
+correoInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    e.preventDefault(); // Evita que se envíe un formulario si lo hay
+    const correo = correoInput.value.trim();
+
+    if (!correo) {
+      alert('Por favor ingresa un correo válido.');
+      return;
+    }
+
     fetch('http://localhost:3000/suscripciones', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ correo })
     })
-      .then(response => {
-        if (response.ok) {
-          alert('¡Gracias por suscribirte!');
-          correoInput.value = ''; // limpiar campo
-        } else {
-          alert('Error al guardar el correo.');
-        }
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        alert('No se pudo conectar con el servidor.');
-      });
+    .then(response => {
+      if (response.ok) {
+        alert('¡Gracias por suscribirte!');
+        correoInput.value = ''; // limpiar campo
+      } else {
+        alert('Error al guardar el correo.');
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      alert('No se pudo conectar con el servidor.');
+    });
   }
+});
+
 });
 // Función para enviar formulario de contacto
 function enviarContacto() {
