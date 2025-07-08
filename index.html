@@ -1,109 +1,91 @@
-
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eventos</title>
-    <link rel="stylesheet" href="./css/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Eventos</title>
+  <link rel="stylesheet" href="./css/styles.css"/>
 </head>
+<body class="body">
+  <!-- Encabezado visible solo en escritorio -->
+  <header class="header header--desktop">
+  <div class="header__logo">Logo</div>
+  <nav class="header__nav">
+    <a href="#" class="header__link">Inicio</a>
+    <a href="#" class="header__link">Acerca de</a>
+    <a href="#" class="header__link">Eventos</a>
+    <a href="#" class="header__link">Contacto</a>
+  </nav>
+</header>
 
-<body>
-    <header class="header">
-        <div class="header__logo">Logo</div>
-        <nav class="header__nav">
-            <a href="#" class="header__link">Inicio</a>
-            <a href="#" class="header__link">Acerca de</a>
-            <a href="#" class="header__link">Eventos</a>
-            <a href="#" class="header__link">Contacto</a>
-        </nav>
-    </header>
+<!-- Navbar inferior solo visible en móviles -->
+<nav class="navbar navbar--mobile">
+  <a href="#" class="navbar__link">
+    <span class="navbar__icon">🏠</span>
+    <span class="navbar__label">Inicio</span>
+  </a>
+  <a href="#" class="navbar__link">
+    <span class="navbar__icon">ℹ️</span>
+    <span class="navbar__label">Acerca</span>
+  </a>
+  <a href="#" class="navbar__link">
+    <span class="navbar__icon">🎫</span>
+    <span class="navbar__label">Eventos</span>
+  </a>
+  <a href="#" class="navbar__link">
+    <span class="navbar__icon">📩</span>
+    <span class="navbar__label">Contacto</span>
+  </a>
+</nav>
 
-    <section class="carousel">
-        <div class="carousel__content">Carrusel de imágenes mínimo 3</div>
-    </section>
-    <div class="event">
-        <img src="#" alt="Imagen evento" class="event__image">
-        <h3 class="event__title">Título del evento</h3>
-        <p class="event__description">Lorem ipsum dolor sit amet...</p>
-        <a href="#" class="event__link">Ver detalles</a>
+  <section class="carousel">
+  <button id="carousel-prev" class="carousel__button carousel__button--left">❮</button>
+  <img src="" alt="Imagen del carrusel" class="carousel__image">
+  <button id="carousel-next" class="carousel__button carousel__button--right">❯</button>
+</section>
+
+  <section class="intro">
+    <h2 class="intro__heading">Bienvenido</h2>
+    <div class="intro__content">
+      <img src="#" alt="Imagen ejemplo" class="intro__image" />
+      <p class="intro__text">
+        Descubre los eventos más importantes de la ciudad. Música, cultura, tecnología y más.
+      </p>
     </div>
-    <section class="intro">
-        <h2 class="intro__heading">Heading</h2>
-        <div class="intro__content">
-            <img src="#" alt="Imagen ejemplo" class="intro__image">
-            <p class="intro__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
-        </div>
-    </section>
+  </section>
 
-    <section class="events">
-        <div class="event">
-            <img src="#" alt="Imagen evento" class="event__image">
-            <h3 class="event__title">Título del evento</h3>
-            <p class="event__description">Lorem ipsum dolor sit amet...</p>
-            <a href="#" class="event__link">Ver detalles</a>
-        </div>
-        <div class="event">
-            <img src="#" alt="Imagen evento" class="event__image">
-            <h3 class="event__title">Título del evento</h3>
-            <p class="event__description">Lorem ipsum dolor sit amet...</p>
-            <a href="#" class="event__link">Ver detalles</a>
-        </div>
-        <div class="event">
-            <img src="#" alt="Imagen evento" class="event__image">
-            <h3 class="event__title">Título del evento</h3>
-            <p class="event__description">Lorem ipsum dolor sit amet...</p>
-            <a href="#" class="event__link">Ver detalles</a>
-        </div>
-        <div class="event">
-            <img src="#" alt="Imagen evento" class="event__image">
-            <h3 class="event__title">Título del evento</h3>
-            <p class="event__description">Lorem ipsum dolor sit amet...</p>
-            <a href="#" class="event__link">Ver detalles</a>
-        </div>
-        <div class="event">
-            <img src="#" alt="Imagen evento" class="event__image">
-            <h3 class="event__title">Título del evento</h3>
-            <p class="event__description">Lorem ipsum dolor sit amet...</p>
-            <a href="#" class="event__link">Ver detalles</a>
-        </div>
-        <div class="event">
-            <img src="#" alt="Imagen evento" class="event__image">
-            <h3 class="event__title">Título del evento</h3>
-            <p class="event__description">Lorem ipsum dolor sit amet...</p>
-            <a href="#" class="event__link">Ver detalles</a>
-        </div>
-        <div class="event">
-            <img src="#" alt="Imagen evento" class="event__image">
-            <h3 class="event__title">Título del evento</h3>
-            <p class="event__description">Lorem ipsum dolor sit amet...</p>
-            <a href="#" class="event__link">Ver detalles</a>
-        </div>
-        <!-- Más .event pueden agregarse dinámicamente -->
-    </section>
+  <section class="events">
+    <!-- Aquí se cargarán los eventos dinámicamente desde main.js -->
+    <!-- El archivo main.js tiene un arreglo llamado 'eventos'. Otra persona debe modificar ese arreglo para añadir o quitar eventos. -->
+  </section>
 
-    <section class="contact">
-        <div class="contact__map">Mapa</div>
-        <form class="contact__form">
-            <input type="text" class="contact__input" placeholder="Nombres">
-            <input type="email" class="contact__input" placeholder="Correo">
-            <textarea class="contact__textarea" placeholder="Mensaje"></textarea>
-            <button type="submit" class="contact__button">Enviar</button>
-        </form>
-    </section>
+  <section class="contact">
+  <div class="contact__map">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.337817944867!2d-75.5861898241233!3d6.219106326623942!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e44293f0e114eef%3A0x99610cdd44c7c081!2sRiwi!5e0!3m2!1ses!2sco!4v1747962288000!5m2!1ses!2sco"
+      width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+  <form class="contact__form">
+    <input type="text" class="contact__input" placeholder="Nombres" />
+    <input type="email" class="contact__input" placeholder="Correo" />
+    <textarea class="contact__textarea" placeholder="Mensaje"></textarea>
+    <button type="submit" class="contact__button">Enviar</button>
+  </form>
+</section>
 
-    <footer class="footer">
-        <div class="footer__newsletter">
-            <label for="correo" class="footer__label">Suscribirme a nuevos eventos</label>
-            <input type="email" id="correo" class="footer__input" placeholder="Correo electrónico">
-        </div>
-        <div class="footer__info">
-            <h4 class="footer__heading">Info</h4>
-            <p class="footer__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
-        </div>
-        <div class="footer__bottom">Footer</div>
-    </footer>
+  <footer class="footer">
+    <div class="footer__newsletter">
+      <label for="correo" class="footer__label">Suscribirme a nuevos eventos</label>
+      <input type="email" id="correo" class="footer__input" placeholder="Correo electrónico"/>
+    </div>
+    <div class="footer__info">
+      <h4 class="footer__heading">Info</h4>
+      <p class="footer__text">Recibe actualizaciones sobre nuestros próximos eventos.</p>
+    </div>
+    <div class="footer__bottom">© 2025 Todos los derechos reservados</div>
+  </footer>
+  <script src="./js/main.js" defer></script>
 </body>
-
 </html>
