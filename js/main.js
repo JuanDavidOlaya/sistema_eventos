@@ -1,36 +1,44 @@
 // Función para agregar eventos dinámicamente
 function cargarEventos() {
-  fetch('http://localhost:3001/eventos')
+  fetch('http://localhost:3000/eventos')
     .then(response => response.json())
     .then(eventos => {
       const contenedor = document.querySelector('.events');
       contenedor.innerHTML = ''; // limpiar antes de agregar
       eventos.forEach(e => {
+        const hoy = new Date().toISOString().split('T')[0]; // Fecha actual
+
+        if (e.fecha < hoy) return; // Si el evento ya pasó, NO lo mostramos
+
         const div = document.createElement('div');
         div.classList.add('event');
         div.innerHTML = `
-          <h4 class="event__id">ID: ${e.id}</h4>
-          <img src="${e.imagen}" alt="Imagen evento" class="event__image">
-          <h3 class="event__title">${e.titulo}</h3>
-          <p class="event__description">${e.descripcion}</p>
-          <p class="event__date">Fecha: ${e.fecha}</p>
-          <p class="event__status">Estado: ${e.estado}</p>
-          <button type="button" class="event__toggle">Ver más</button>
-          <a href="${e.link}" class="event__link">Ver detalles</a>
-        `;
+        <h4 class="event__id">ID: ${e.id}</h4>
+        <img src="${e.imagen}" alt="Imagen evento" class="event__image">
+        <h3 class="event__title">${e.titulo}</h3>
+        <p class="event__description">${e.descripcion}</p>
+        <p class="event__date">Fecha: ${e.fecha}</p>
+        <p class="event__status">Estado: ${e.estado}</p>
+        <button type="button" class="event__toggle">Ver más</button>
+        <a href="${e.link}" class="event__link">Ver detalles</a>
+      `;
         contenedor.appendChild(div);
       });
+
     })
     .catch(error => console.error('Error al cargar eventos:', error));
 }
 
 // Ejecutar al cargar el DOM
-document.addEventListener('DOMContentLoaded', cargarEventos);
+document.addEventListener('DOMContentLoaded', () => {
+  cargarEventos();
+  enviarContacto(); // ← Ejecutamos aquí
+});
 
 
 // Escuchar clicks en todos los botones Ver más/Ver menos
 // Escuchar clicks en todos los botones Ver más/Ver menos
-document.addEventListener('click', function(e) {
+document.addEventListener('click', function (e) {
   if (e.target.matches('.event__toggle')) {
     const eventCard = e.target.closest('.event'); // buscar el div .event
     const desc = eventCard.querySelector('.event__description'); // buscar la descripción
@@ -43,7 +51,7 @@ document.addEventListener('click', function(e) {
 
 // Ejecutar al cargar el DOM
 document.addEventListener('DOMContentLoaded', cargarEventos);
-  
+
 // Función para crear cada tarjeta de evento
 function crearEvento(evento) {
   const contenedor = document.querySelector(".events");
@@ -58,7 +66,7 @@ function crearEvento(evento) {
   contenedor.appendChild(div);
 }
 // Carrusel de imágenes
-  const imagenes = [
+const imagenes = [
   "https://template.canva.com/EAFcn2Jk5TY/2/0/1600w-waOGgi87JjY.jpg",
   "https://template.canva.com/EAFE_7DXHAc/1/0/1600w-NupVJDa4Oqs.jpg",
   "https://template.canva.com/EAGGnT4F_CM/4/0/1600w-xeL-rStR0NM.jpg"
@@ -126,19 +134,67 @@ correoInput.addEventListener('keypress', (e) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ correo })
     })
-    .then(response => {
-      if (response.ok) {
-        alert('¡Gracias por suscribirte!');
-        correoInput.value = ''; // limpiar campo
-      } else {
-        alert('Error al guardar el correo.');
-      }
-    })
-    .catch(error => {
-      console.error('Error:', error);
-      alert('No se pudo conectar con el servidor.');
-    });
+      .then(response => {
+        if (response.ok) {
+          alert('¡Gracias por suscribirte!');
+          correoInput.value = ''; // limpiar campo
+        } else {
+          alert('Error al guardar el correo.');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('No se pudo conectar con el servidor.');
+      });
   }
 });
+// Función para enviar formulario de contacto
+function enviarContacto() {
+  const form = document.querySelector('#form-contacto');
+  if (!form) return;
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const nombre = document.querySelector('#nombre')?.value.trim();
+    const correo = document.querySelector('#correo')?.value.trim();
+    const mensaje = document.querySelector('#mensaje')?.value.trim();
+
+    if (!nombre || !correo || !mensaje) {
+      alert("Por favor completa todos los campos.");
+      return;
+    }
+
+    const nuevoContacto = {
+      id: generarID(),
+      nombre,
+      correo,
+      mensaje,
+      fecha: new Date().toISOString()
+    };
+
+    fetch('http://localhost:3000/contactos', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(nuevoContacto)
+    })
+      .then(res => {
+        if (res.ok) {
+          alert('Mensaje enviado correctamente');
+          form.reset();
+        } else {
+          alert('Error al enviar el mensaje');
+        }
+      })
+      .catch(() => {
+        alert('Error al conectar con el servidor');
+      });
+  });
+}
+
+// Función auxiliar para generar IDs únicos
+function generarID() {
+  return Math.random().toString(36).substr(2, 9);
+}
 
 

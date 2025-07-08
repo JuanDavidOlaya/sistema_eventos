@@ -11,31 +11,29 @@
   <link rel="stylesheet" href="../css/dashboard.css">
 </head>
 <body>
+<div class="sidebar">
+  <!-- Menú lateral -->
+  <h4 class="text-center">Administrador</h4>
+  <hr class="text-light">
+  <a href="./dashboard.html"><i class="bi bi-house-door"></i> Escritorio</a>
+  <a href="./eventos.html"><i class="bi bi-calendar-event"></i> Eventos</a>
+  <a href="./suscripciones.html"><i class="bi bi-envelope-paper"></i> Suscripciones</a>
+  <a href="./contacto.html"><i class="bi bi-chat-dots"></i> Contacto</a>
+  <hr class="text-light">
+  <a href="../index.html"><i class="bi bi-box-arrow-left"></i> Cerrar sesión</a>
+</div>
 
-  <!-- Sidebar -->
-  <div class="sidebar">
-    <h4 class="text-center">Administrador</h4>
-    <hr class="text-light">
-    <a href="#"><i class="bi bi-house-door"></i> EScritorio</a>
-    <a href="./eventos.html"><i class="bi bi-calendar-event"></i> Eventos</a>
-    <a href="./suscripciones.html"><i class="bi bi-envelope-paper"></i> Suscripciones</a>
-    <a href="./contacto.html"><i class="bi bi-chat-dots"></i> Contacto</a>
-    <hr class="text-light">
-    <!-- Esto es un simple enlace. No "cierra sesión" realmente sin JS -->
-    <a href="../index.html"><i class="bi bi-box-arrow-left"></i> Cerrar sesión</a>
-  </div>
-
-  <!-- Contenido principal -->
-  <div class="content">
-    <h1>Bienvenido</h1>
-    <p>Este es el panel de administración.</p>
-  </div>
-  <div id="seccion-escritorio">
-    <h4>Resumen del sistema</h4>
-    <div id="admin-escritorio" class="row row-cols-1 row-cols-md-3 g-3 mt-3">
-      <!-- Aquí van las tarjetas -->
+<!-- Contenido principal -->
+<div class="content">
+  <div class="container mt-4">
+    <h2>Resumen del Sistema</h2>
+    <div class="row mt-4 g-4" id="dashboard-cards">
+      <!-- Tarjetas dinámicas -->
     </div>
   </div>
-<script src="../js/middleware.js"></script>
+</div>
+
+<script src="../js/admin.js"></script>
+
 </body>
 </html>

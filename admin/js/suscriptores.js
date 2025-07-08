@@ -1,28 +1,41 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const listaSuscripciones = document.getElementById("listaSuscripciones");
-    const URL_API = "http://localhost:3000/suscripciones";
-  
-    async function cargarSuscripciones() {
-      try {
-        const response = await fetch(URL_API);
-        const suscripciones = await response.json();
-  
-        listaSuscripciones.innerHTML = ""; 
-  
-        suscripciones.forEach((s, index) => {
-          const row = document.createElement("tr");
-          row.innerHTML = `
-            <td>${index + 1}</td>
-            <td>${s.email}</td>
-            <td>${s.fecha}</td>
-          `;
-          listaSuscripciones.appendChild(row);
-        });
-      } catch (error) {
-        console.error("Error al cargar suscripciones:", error);
+document.addEventListener('DOMContentLoaded', () => {
+  const tabla = document.querySelector('#lista-suscripciones');
+
+  fetch('http://localhost:3000/suscripciones')
+    .then(res => res.json())
+    .then(suscripciones => {
+      if (suscripciones.length === 0) {
+        tabla.innerHTML = '<tr><td colspan="3">No hay suscripciones registradas.</td></tr>';
+        return;
+      }
+
+      suscripciones.forEach((sub, index) => {
+        const fila = document.createElement('tr');
+        fila.innerHTML = `
+          <td>${index + 1}</td>
+          <td>${sub.correo}</td>
+          <td>
+            ${new Date(sub.fecha || Date.now()).toLocaleString()}
+            <button class="btn btn-sm btn-danger ms-2 eliminar" data-id="${sub.id}">
+              <i class="bi bi-trash"></i>
+            </button>
+          </td>
+        `;
+        tabla.appendChild(fila);
+      });
+    })
+    .catch(err => {
+      console.error('Error al cargar suscripciones:', err);
+    });
+
+  // Delegación de evento para eliminar
+  document.addEventListener('click', e => {
+    if (e.target.closest('.eliminar')) {
+      const id = e.target.closest('.eliminar').dataset.id;
+      if (confirm('¿Eliminar esta suscripción?')) {
+        fetch(`http://localhost:3000/suscripciones/${id}`, { method: 'DELETE' })
+          .then(() => location.reload());
       }
     }
-  
-    cargarSuscripciones();
   });
-  
+});

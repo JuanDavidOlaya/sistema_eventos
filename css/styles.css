@@ -13,12 +13,16 @@
   margin: 0;
   padding: 0;
 }
+html{
+  scroll-behavior: smooth;
+}
 
 body {
   font-family: 'Arial', sans-serif;
   background-color: var(--fondo-claro);
   color: var(--capa-superior);
   line-height: 1.6;
+  
 }
 
 /* Header */

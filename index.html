@@ -13,8 +13,8 @@
   <nav class="header__nav">
     <a href="#" class="header__link">Inicio</a>
     <a href="#" class="header__link">Acerca de</a>
-    <a href="#" class="header__link">Eventos</a>
-    <a href="#" class="header__link">Contacto</a>
+    <a href="#eventos" class="header__link">Eventos</a>
+    <a href="#contacto" class="header__link">Contacto</a>
   </nav>
 </header>
 
@@ -54,12 +54,12 @@
     </div>
   </section>
 
-  <section class="events">
+  <section class="events" id="eventos">
     <!-- Aquí se cargarán los eventos dinámicamente desde main.js -->
     <!-- El archivo main.js tiene un arreglo llamado 'eventos'. Otra persona debe modificar ese arreglo para añadir o quitar eventos. -->
   </section>
 
-  <section class="contact">
+  <section class="contact" id="contacto">
   <div class="contact__map">
     <iframe
       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.337817944867!2d-75.5861898241233!3d6.219106326623942!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e44293f0e114eef%3A0x99610cdd44c7c081!2sRiwi!5e0!3m2!1ses!2sco!4v1747962288000!5m2!1ses!2sco"
@@ -67,10 +67,10 @@
       referrerpolicy="no-referrer-when-downgrade">
     </iframe>
   </div>
-  <form class="contact__form">
-    <input type="text" class="contact__input" placeholder="Nombres" />
-    <input type="email" class="contact__input" placeholder="Correo" />
-    <textarea class="contact__textarea" placeholder="Mensaje"></textarea>
+  <form class="contact__form" id="form-contacto">
+    <input type="text" class="contact__input" id="nombre" placeholder="Nombres" />
+    <input type="email" class="contact__input" id="correo" placeholder="Correo" />
+    <textarea class="contact__textarea" id="mensaje" placeholder="Mensaje"></textarea>
     <button type="submit" class="contact__button">Enviar</button>
   </form>
 </section>
