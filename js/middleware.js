@@ -1,11 +1,9 @@
-// // middleware
+document.addEventListener("DOMContentLoaded", () => {
+  const userActive = sessionStorage.getItem("userActive");
+  const isLoginPage = location.pathname.endsWith("login.html");
 
-// (function () {
-//   const usuario = JSON.parse(sessionStorage.getItem("usuarioActivo"));
-
-//   if (!usuario) {
-//     // Si no hay sesión activa, redirige al login
-//     alert("Acceso denegado. Inicia sesión primero.");
-//     location.href = "../login.html";
-//   }
-// })();
+  if (!userActive && !isLoginPage) {
+    alert("Debes iniciar sesión para acceder a esta página.");
+    location.href = "../login.html";
+  }
+});
